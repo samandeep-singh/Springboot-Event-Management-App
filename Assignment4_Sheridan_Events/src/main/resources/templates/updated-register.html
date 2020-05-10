@@ -1,0 +1,153 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password],input[type=date],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus,input[type=email]:focus {
+  background-color: #ddd;
+
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #27BBD1;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+a {
+  color: dodgerblue;
+}
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.container1 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.container1:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+
+.container1 input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container1 input:checked ~ .checkmark:after {
+  display: block;
+}
+.container1 .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+</style>
+</head>
+<body>
+
+<form action=""th:action="@{/register}" method="post" >
+  <div class="container">
+    <h1 align="center">Register here </h1>
+    <p align="center">Please fill in the data to create account.</p>
+    <hr>
+
+    <label for="name"><b>Username</b></label>
+    <input type="text" placeholder="Enter Name" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <label for="fullname"><b>Full Name</b></label>
+    <input type="text" placeholder="Enter full name" name="fullName" required>
+    
+    <label for="DOB"><b>Date of birth</b></label><br>
+    <input type="date" placeholder="Enter date of birth" name="DOB" required>
+     <label for="Email"><b>E-mail</b></label>
+    <input type="email" placeholder="Enter Email" name="email" required><br>
+    
+     <label for="phone"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+    <hr><br>
+
+<label class="container1">Member
+  <input type="radio" checked="checked" name="user" value="member">
+  <span class="checkmark"></span>
+</label>
+<label class="container1">Admin
+  <input type="radio" name="user" value="admin">
+  <span class="checkmark"></span>
+</label>
+    <input type="submit" class="registerbtn" value="Add User">
+  </div>
+</form>
+
+</body>
+</html>

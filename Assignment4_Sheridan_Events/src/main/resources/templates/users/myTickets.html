@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>My Tickets</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.border {
+  width: 100%;
+  padding: 10px 50px 50px 50px;
+}
+
+.header{
+width: 100%;
+height: 70px;
+display: block;
+background-color: #101010;
+
+}
+.logo{
+height: 100%;
+display: table;
+float: left;
+}
+.logo h1{
+height: 100%;
+color: white;
+display: table-cell;
+vertical-align: middle;
+font-size: 35px;
+
+}
+.nav{
+height: 100%;
+float: right;
+
+}
+.nav a{
+height: 100%;
+display: table;
+float: left;
+padding: 0px 20px;
+}
+.nav a li{
+display: table-cell;
+vertical-align: middle;
+height: 100%;
+color: white;
+font-size: 16px;
+}
+
+
+img{
+width: 100%;
+height: 300px;
+}
+
+.card {
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f1f1f1;
+  width : 75%;
+  height : 45%;
+  display: inline-block;
+  margin-left:13%;
+}
+.search{
+text-align: center;
+}
+.val{
+padding: 10px;
+text-align: left;
+}
+.rightVal{
+padding: 10px;
+text-align: right;
+}
+.button {
+  background-color: #0abde3; 
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+}
+table {
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even){background-color: #E8E8E8}
+tr:nth-child(odd){background-color: #FFFFFF}
+
+th {
+  background-color: #0abde3;
+  color: white;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  color: white;
+}
+h1{
+color: black;
+}
+body{
+color: white;
+}
+table{
+color: black;
+}
+.for{
+background: white;
+color: black;
+padding: 10px 10px 10px 10px;
+}
+.button {
+  background-color: #0abde3; 
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+}
+
+</style>
+
+</head>
+<body>
+<header th:insert="/users/viewEvents.html :: header"></header>
+<h1>
+My Ticket Purchases
+</h1>
+<form action = "/member/event.search" method = "Get">
+<input type = "text" name = "searchTerm" width = "100%" placeholder = "Search Event">
+<select name = "searchType">
+  <option value="byType">Search By Name</option>
+  <option value="byDate">Search By Date</option>
+  <option value="byLocation">Search By Location</option>
+  <option value="byPrice">Search By Price Range</option>
+  <option value="byTickets">Search By Ticket Quantity</option>
+</select>
+<input class = "button" type = "submit" value = "Search">
+</form>
+<form action="/logout">
+<input type = "submit" value = "Logout">
+</form>
+ <table>
+<tr>
+<th>Type</th>
+<th>Location</th>
+<th>Time</th>
+<th>Date</th>
+<th>Description</th>
+<th> Ticket Price </th>
+</tr>
+<tr th:each = "event : ${events}">
+<td th:text = "${event.type}"></td>
+<td th:text = "${event.location}"></td>
+<td th:text = "${event.eTime}"></td>
+<td th:text = "${event.eDate}"></td>
+<td th:text = "${event.description}"></td>
+<td th:text = "${event.ticketPrice}"></td>
+<td><a href="" th:href="@{/member/cancelTickets/{id}(id=${event.eventId})}">
+      <input type = "button" value = "Cancel Ticket"></a></td>
+</tr>
+</table>
+</body>
+</html>

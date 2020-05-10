@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text],input[type=date]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus,input[type=date]:focus {
+  background-color: #ddd;
+
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #27BBD1;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+a {
+  color: dodgerblue;
+}
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.border {
+  width: 100%;
+  padding: 10px 50px 50px 50px;
+}
+
+.header{
+width: 100%;
+height: 70px;
+display: block;
+background-color: #101010;
+
+}
+.logo{
+height: 100%;
+display: table;
+float: left;
+}
+.logo h1{
+height: 100%;
+color: white;
+display: table-cell;
+vertical-align: middle;
+font-size: 35px;
+
+}
+.nav{
+height: 100%;
+float: right;
+
+}
+.nav a{
+height: 100%;
+display: table;
+float: left;
+padding: 0px 20px;
+}
+.nav a li{
+display: table-cell;
+vertical-align: middle;
+height: 100%;
+color: white;
+font-size: 16px;
+}
+
+
+img{
+width: 100%;
+height: 300px;
+}
+
+.card {
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f1f1f1;
+  width : 75%;
+  height : 45%;
+  display: inline-block;
+  margin-left:13%;
+}
+.search{
+text-align: center;
+}
+.val{
+padding: 10px;
+text-align: left;
+}
+.rightVal{
+padding: 10px;
+text-align: right;
+}
+.button {
+  background-color: #0abde3; 
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+}
+
+
+</style>
+</head>
+<body>
+<header th:insert="/users/viewEvents.html :: header"></header>
+  <div class="container">
+ <h1 align="center">Add Event</h1>
+    <hr>
+<div>
+<form method = "get" action = "/admin/event.add" >
+
+    <label for="type"><b>Type</b></label>
+    <input type="text"  name="type" >
+    
+    <label for="location"><b>Location</b></label>
+    <input type="text"  name="location" >
+    
+    <label for="eDate"><b>Date</b></label>
+    <input type="date"  name="eDate" >
+    
+    <label for="eTime"><b>Time</b></label>
+    <input type="text"  name="eTime" >
+    
+    <label for="price"><b>Ticket Price $</b></label>
+    <input type="text"  name="ticketPrice" >
+    
+     <label for="maxTickets"><b>Ticket Quantity</b></label>
+    <input type="text"  name="maxTickets" >
+    
+    <label for="description"><b>Description</b></label>
+    <input type="text"  name="description" >
+    
+<input type = "submit" value = "Submit" name = "btnSubmit" class="registerbtn">
+
+
+            
+            </form>
+          </div>    </div>
+</body>
+</html>

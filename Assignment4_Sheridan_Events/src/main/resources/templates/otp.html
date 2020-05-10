@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" media="all"  
+      href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+    <style>
+     body{
+font-family: 'Comfortaa';
+text-align: center;
+}
+form{
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+}
+div{
+text-align: center;
+}
+input{
+width: 100%;
+padding: 8px;
+border: 2px solid #0abde3;
+border-radius: 4px;
+}
+input[type=submit]{
+color: white;
+background-color: #0abde3;
+}
+    </style>
+</head>
+<body>
+
+            <h1>Please enter the one time password sent on your email address</h1>
+            <form th:action="@{/otpConfirmation}" method="post">
+                <div>
+                    <label for="username">OTP</label>:
+                    <input type="text"
+                           name="otpInput"
+                           autofocus="autofocus"
+                           placeholder="One Time Password">
+                </div>
+                <div>
+                     <input type="submit"
+                            value="Go">
+                </div>
+            </form>
+
+    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+    <a href="#" th:href = "@{/register}"><button>Register</button></a>
+
+
+</body>
+</html>

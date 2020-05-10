@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+div{
+color:red;}
+h1{color:green;}
+
+</style>
+</head>
+
+<body>
+<h1>This is a Thymeleaf Email</h1>
+<h2 th:text="'Welcome '+ ${name}"> Standard Greeting</h2>
+<div th:text="${message}"> Just a message</div>
+<div th:text="${footer}">Footer</div>
+</body>
+</html>

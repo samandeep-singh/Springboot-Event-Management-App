@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" media="all"  
+      href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+    <style>
+     body{
+font-family: 'Comfortaa';
+text-align: center;
+}
+form{
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+}
+div{
+text-align: center;
+}
+input{
+width: 100%;
+padding: 8px;
+border: 2px solid #0abde3;
+border-radius: 4px;
+}
+input[type=submit]{
+color: white;
+background-color: #0abde3;
+}
+    </style>
+</head>
+<body>
+
+            <h1>Login page</h1>
+            <form th:action="@{/login}" method="post">
+                <div th:if="${param.error}">
+                    <div class="alert ">
+                        Invalid username or password.
+                    </div>
+                </div>
+                <div th:if="${param.logout}">
+                    <div class="alert ">
+                        You have been logged out.
+                    </div>
+                </div>
+                <div>
+                    <label for="username">Username</label>:
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           autofocus="autofocus"
+                           placeholder="Username">
+                </div>
+                <div> 
+                    <label for="password">Password</label>:
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="Password">
+                </div>
+                <div>
+                     <input type="submit"
+                            name="login-submit"
+                            id="login-submit"
+                            value="Log In">
+                </div>
+                            <a href= "" th:href="@{/forgotPassword}"><input type="button"
+                            value="Forgot Password?"></a>
+              
+                
+            </form>
+
+    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+    <a href="#" th:href = "@{/register}"><button>Register</button></a>
+
+
+</body>
+</html>

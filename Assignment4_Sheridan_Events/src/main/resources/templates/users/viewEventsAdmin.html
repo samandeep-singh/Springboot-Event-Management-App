@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:fragment="head">
+<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>View Events</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.border {
+  width: 100%;
+  padding: 10px 50px 50px 50px;
+}
+
+.header{
+width: 100%;
+height: 70px;
+display: block;
+background-color: #101010;
+
+}
+.logo{
+height: 100%;
+display: table;
+float: left;
+}
+.logo h1{
+height: 100%;
+color: white;
+display: table-cell;
+vertical-align: middle;
+font-size: 35px;
+
+}
+.nav{
+height: 100%;
+float: right;
+
+}
+.nav a{
+height: 100%;
+display: table;
+float: left;
+padding: 0px 20px;
+}
+.nav a li{
+display: table-cell;
+vertical-align: middle;
+height: 100%;
+color: white;
+font-size: 16px;
+}
+
+
+img{
+width: 100%;
+height: 300px;
+}
+
+.card {
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f1f1f1;
+  width : 75%;
+  height : 45%;
+  display: inline-block;
+  margin-left:13%;
+}
+.search{
+text-align: center;
+}
+.val{
+padding: 10px;
+text-align: left;
+}
+.rightVal{
+padding: 10px;
+text-align: right;
+}
+.button {
+  background-color: #0abde3; 
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+}
+
+</style>
+
+</head>
+<body>
+<div class = "header" th:fragment="header">
+<div class = "logo">
+<h1>Sheridan Events</h1>
+<ul class = "nav">
+<a href = "" th:href = "@{/}"><li>Home</li></a>
+<a href ="" th:href = "@{/logout}"><li>Logout</li></a>
+</ul>
+</div>
+</div>
+<div class = "search">
+<form action = "/member/event.search" method = "Get">
+<input type = "text" name = "searchTerm" width = "100%" placeholder = "Search Event">
+<select name = "searchType">
+  <option value="byType">Search By Name</option>
+  <option value="byDate">Search By Date</option>
+  <option value="byLocation">Search By Location</option>
+  <option value="byPrice">Search By Price Range</option>
+  <option value="byTickets">Search By Ticket Quantity</option>
+</select>
+<input class = "button" type = "submit" value = "Search">&nbsp;
+<a href = "http://localhost:8080/admin/event.add.form"><input class = "button" value = "Add Event"></a>
+<a href = "http://localhost:8080/member/myTickets"><input class = "button" value = "My Tickets"></a><br>
+      <a href="" th:href="@{/dummy}">
+      <input class = "button" value = "Generate Dummy"></a>
+</form>
+</div>
+<div  th:each = "event:${events}">
+  <div class="border">
+    <div class="card">
+    <img src = "" th:src="@{/images/theden.png}">
+
+      <h1><span th:text = "${event.type}">Hi</span></h1>
+      <div class = "val">
+      <h3>Location: <span th:text = "${event.location}"></span></h3>
+      <h3>Time: <span th:text = "${event.eTime}"></span></h3>
+      <h3>Date: <span th:text = "${event.eDate}"></span></h3>
+      <h3>Number of Tickets: <span th:text = "${event.maxTickets}"></span></h3>
+      <h3>Description: <span th:text = "${event.description}"></span></h3>
+     </div>       
+      
+      <div class = "rightVal">
+      <h2>Price: $<span th:text = "${event.ticketPrice}"></span></h2>
+      <div class = "button">
+      <a href="" th:href="@{/admin/event.modify.form/{id}(id=${event.eventId})}">
+      <input type = "button" value = "Edit Event"></a><br>
+      </div>
+      <div class = "button">
+      <a href="" th:href="@{/admin/event.delete/{id}(id=${event.eventId})}">
+      <input type = "button" value = "Delete Event"></a>
+      </div>
+      </div>
+      <p>
+    </div>
+    </div>
+  </div>
+
+
+<!-- </form>
+ <table>
+<tr>
+<th>Type</th>
+<th>Location</th>
+<th>Time</th>
+<th>Date</th>
+<th>Description</th>
+<th>Ticket Qty </th>
+<th> Ticket Price </th>
+</tr>
+<tr th:each = "event : ${events}">
+<td th:text = "${event.type}"></td>
+<td th:text = "${event.location}"></td>
+<td th:text = "${event.eTime}"></td>
+<td th:text = "${event.eDate}"></td>
+<td th:text = "${event.description}"></td>
+<td th:text = "${event.maxTickets}"></td>
+<td th:text = "${event.ticketPrice}"></td>
+<td><a href="" th:href="@{/admin/event.modify.form/{id}(id=${event.eventId})}">EDIT</a></td>
+<td><a href="" th:href="@{/admin/event.delete/{id}(id=${event.eventId})}">DELETE</a></td>
+
+</tr>
+</table>
+-->
+</body>
+</html>

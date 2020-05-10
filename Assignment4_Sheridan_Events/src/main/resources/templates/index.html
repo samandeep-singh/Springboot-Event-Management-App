@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <style>
+    body{
+font-family: 'Comfortaa';
+text-align: center;
+}
+form{
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+}
+div{
+text-align: center;
+}
+input{
+width: 100%;
+padding: 8px;
+border: 2px solid #0abde3;
+border-radius: 4px;
+}
+input[type=submit]{
+color: white;
+background-color: #0abde3;
+}
+    </style>
+</head>
+<body>
+
+    <h1>Hello There</h1>
+    <p>This is an unsecured page, but you can access the secured pages after authenticating.</p>
+    <ul>
+        <li>Go to the <a href="/member/event.view" th:href="@{/member/event.view}">secured pages</a></li>
+    </ul>
+
+</body>
+</html>

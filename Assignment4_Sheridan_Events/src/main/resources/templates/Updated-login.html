@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password],input[type=date],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus,input[type=email]:focus {
+  background-color: #ddd;
+
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #27BBD1;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+a {
+  color: dodgerblue;
+}
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.button {
+  background-color: #0abde3; 
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+}
+</style>
+</head>
+<body>
+
+<form action=""th:action="@{/login}" method="post" >
+  <div class="container">
+    <h1 align="center">Login </h1>
+    <p align="center">Enter username and password to login.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Username" name="username" >
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password">
+    <hr><br>
+    <input type="submit" class="registerbtn" value="Login">
+    <div class = "button">
+    <a href= "" th:href="@{/forgotPassword}"><input type="button" value="Forgot Password?"></a>
+    </div>
+        <div class = "button">
+    <a href="#" th:href = "@{/register}"><input type="button" value="Register"></a>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
